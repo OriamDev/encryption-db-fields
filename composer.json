@@ -1,0 +1,16 @@
+{
+    "name": "oriamdev/encryption-db-fields",
+    "description": "This package allows two way encryption on all critical fields inside database. Allows search by encrypted field.",
+    "autoload": {
+        "psr-4": {
+            "Oriamdev\\EncryptionDbFields\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "OriamDev",
+            "email": "iscac17783@alumni.iscac.pt"
+        }
+    ],
+    "require": {}
+}
