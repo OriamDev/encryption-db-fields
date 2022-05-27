@@ -1,6 +1,6 @@
 # Encryption DB Fields
 
-## _This package allows two way encryption on all critical fields inside database._
+## _This package allows two way encryption on all critical fields inside the database._
 ## _Allows search by encrypted field._
 
 ### Installation
@@ -12,7 +12,7 @@ $ composer require oriamdev/encryption-db-fields
 ```
 
 ### Setup Eloquent Model
-**1** - First you need to add the trait `EncryptAttributesTrait` to the model when you want to encryp fields.
+**1** - First, you need to add the trait `EncryptAttributesTrait` to the model when you want to encrypt fields.
 ```php
     use EncryptAttributesTrait;
 ```
@@ -20,7 +20,7 @@ $ composer require oriamdev/encryption-db-fields
 ```php
     protected array $encrypts = ['name', 'email'];
 ```
-**3** - If you wath to search by encrypted field you need to add the array `$searchableEncrypts` to the model.
+**3** - If you want to search by encrypted field you need to add the array `$searchableEncrypts` to the model.
 ```php
     protected array $searchableEncrypts = ['name', 'email'];
 ```
@@ -49,28 +49,28 @@ php artisan migrate
 ```
 
 ### CRUD Operations
-The crud operations works the same way and the processo to encrypt and decrypt fields are responsability of the trait `EncryptAttributesTrait`
+The crud operations work the same way and the process to encrypt and decrypt fields are responsibility of the trait `EncryptAttributesTrait`
 
 ### Validation Rules
 The _laravel_ validation rules ```unique and exists``` does not work but, not worry about it.
 The package has a Validation Rule `Oriamdev\EncryptionUserDbAuth\Rules\Encrypted`
 The construct need the fully qualified name of the model. `User::class or Post::class`
 ### Check if field under validation is unique
-After create the new instance of Encrypted Rule you can pass the unique method
+After creating the new instance of Encrypted Rule you can pass the unique method
 ```php
 $request->validate([
      'email' => [(new Encrypted(User::class))->unique()],
 ]);
 ```
-If the validation fail the rule return the default value of `validation:unique`
+If the validation fails the rule return the default value of `validation:unique`
 ### Check if field under validation exists
-After create the new instance of Encrypted Rule you can pass the exists method
+After creating the new instance of Encrypted Rule you can pass the exists method
 ```php
 $request->validate([
      'email' => [(new Encrypted(User::class))->unique()],
 ]);
 ```
-If the validation fail the rule return the default value of `validation:unique`
+If the validation fails the rule return the default value of `validation:unique`
 ```php
 $request->validate([
     'name' => [(new Encrypted(User::class))->exists()]
@@ -80,4 +80,4 @@ $request->validate([
 ```php
 $user = User::findByEncrypt('email', 'mario@oriamdev.com');
 ```
-The method `findByEncrypt` return an instance of model ou `null` if not exists.
+The method `findByEncrypt` return an instance of model or `null` if not exists.
