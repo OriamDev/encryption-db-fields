@@ -8,7 +8,7 @@
 You can install the package via composer:
 
 ```bash
-$ composer require oriamdev/encryption-db-fields
+composer require oriamdev/encryption-db-fields
 ```
 
 ### Setup Eloquent Model
